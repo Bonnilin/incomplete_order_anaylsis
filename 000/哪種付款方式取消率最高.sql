@@ -12,7 +12,7 @@ WHEN b.status = 3 then 'Paid'
 WHEN b.status = 4 then 'Shipped'
 WHEN b.status = 6 then 'Cancelled'
 END AS status,
-count(DISTINCT a.order_id) AS ' uncomplete_order'
+count(DISTINCT a.order_id) AS ' incomplete_order'
 FROM order_item_tab a
 LEFT JOIN order_tab b ON a.order_id = b.order_id
 LEFT JOIN payment_methods_tab c ON b.payment_method_id = c.method_id
