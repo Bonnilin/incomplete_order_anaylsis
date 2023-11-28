@@ -2,7 +2,7 @@
 SELECT d.category_id,
        d.name AS category_name,
        date (create_date, 'start of month'),
-       count(DISTINCT a.order_id) AS ' incomplete_order'
+       count(DISTINCT a.order_id) AS ' uncompleted_order'
    FROM order_tab a
    LEFT JOIN order_item_tab b ON a.order_id = b.order_id
    LEFT JOIN item_info_tab c ON b.item_id = c.item_id

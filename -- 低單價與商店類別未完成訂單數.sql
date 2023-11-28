@@ -3,10 +3,10 @@ SELECT CASE WHEN is_official_shop = 1 then 'official'
             WHEN is_preferred_shop = 1 then 'preferred'
             WHEN is_cb_shop = 1 then 'cb'
             WHEN is_b2c_shop = 1 then 'b2c'
-       END AS shop_type,
+            END AS shop_type,
        price_usd,
-       date (create_date, 'start of month'),
-       count(DISTINCT a.order_id) AS ' incomplete_order'
+      date (create_date, 'start of month'),
+      count(DISTINCT a.order_id) AS ' uncomplete_order'
     FROM order_tab a
     LEFT JOIN order_item_tab b ON a.order_id = b.order_id
     LEFT JOIN item_info_tab c ON b.item_id = c.item_id

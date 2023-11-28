@@ -1,5 +1,5 @@
 SELECT b.item_price_usd,
-       count(DISTINCT a.order_id) AS ' incomplete_order'
+       count(DISTINCT a.order_id) AS ' uncompleted_order'
      FROM order_tab a
      LEFT JOIN order_item_tab b ON a.order_id = b.order_id
      LEFT JOIN item_info_tab c ON b.item_id = c.item_id
